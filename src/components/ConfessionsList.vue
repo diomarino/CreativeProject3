@@ -3,8 +3,9 @@
     <div class="confessions">
       <div class="confession" v-for="confession in confessions" :key="confession.id">
         <div class="info">
-          <h1>{{confession.confession}}</h1>
-          <h2>-{{confession.major}}</h2>
+          <p>{{confession.confession}}</p>
+          <br />
+          <p class="major">-{{confession.major}}</p>
           <div class="likes">
             <button class="auto">
               <i class="far fa-thumbs-up"></i>
@@ -34,14 +35,15 @@ export default {
 }
 
 .confessions {
-  margin-top: 20px;
+  margin-top: 0px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .confession {
   margin: 10px;
-  margin-top: 50px;
+  margin-top: 150px;
   width: 200px;
 }
 
@@ -52,26 +54,21 @@ export default {
   height: 80px;
 }
 
-.info h1 {
-  font-size: 16px;
-}
-
-.info h2 {
-  font-size: 14px;
-}
-
 .info p {
   margin: 0px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .likes {
   display: flex;
+  width: 50px;
+  height: 50px;
 }
 
 .likes p {
-  margin-left: 5px;
+  margin-left: 6px;
   margin-top: 5px;
+  font-size: 10px;
 }
 
 button {
@@ -79,5 +76,7 @@ button {
   background: #000;
   color: white;
   border: none;
+  margin-top: 5px;
+  margin-left: 0px;
 }
 </style>
