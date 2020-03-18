@@ -13,7 +13,7 @@
             <p>Major</p>
           </div>
         </router-link>
-        <router-link to="/confess">
+        <router-link to="/submit">
           <div class="submit-confession confession">
             <i class="fas fa-bullhorn"></i>
             <p>Submit</p>

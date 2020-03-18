@@ -7,7 +7,7 @@
           <br />
           <p class="major">-{{confession.major}}</p>
           <div class="likes">
-            <button class="auto">
+            <button class="auto" v-on:click="addLikes(confession)">
               <i class="far fa-thumbs-up"></i>
             </button>
             <p>{{confession.likes}}</p>
@@ -23,6 +23,12 @@ export default {
   name: "ConfessionsList",
   props: {
     confessions: Array
+  },
+  methods: {
+    addLikes(confession) {
+      let newLikes = parseInt(confession.likes) + 1;
+      confession.likes = newLikes.toString();
+    }
   }
 };
 </script>
