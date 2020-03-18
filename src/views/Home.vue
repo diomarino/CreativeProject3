@@ -1,6 +1,11 @@
 <template>
   <div>
-    <ConfessionsList :confessions="confessions" />
+    <div>
+      <ConfessionsList :confessions="confessions" />
+    </div>
+    <div class="footer">
+      <a href="https://github.com/diomarino/CreativeProject3.git">GitHub</a>
+    </div>
   </div>
 </template>
 
@@ -21,3 +26,14 @@ export default {
   }
 };
 </script>
+
+<style>
+.footer {
+  position: relative;
+  margin-top: 100px;
+  height: 10px;
+  clear: both;
+  color: white;
+  text-align: center;
+}
+</style>
