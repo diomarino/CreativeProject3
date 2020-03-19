@@ -8,11 +8,14 @@
           <textarea class="pure-input-1-2" placeholder="Confession" v-model="confession"></textarea>
         </fieldset>
         <button
-          v-on:click="submitConfession()"
+          v-on:click="submitConfession"
           type="submit"
           class="pure-button pure-input-1-2 pure-button-primary"
         >Submit</button>
       </form>
+      <div class="success" v-if="success">
+        <p>{{ this.message }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -23,17 +26,22 @@ export default {
   data() {
     return {
       major: "",
-      confession: ""
+      confession: "",
+      success: false,
+      message: ""
     };
   },
   methods: {
-    submitConfession() {
+    submitConfession(event) {
+      event.preventDefault();
       this.$root.$data.confessions.push({
         id: this.$root.$data.confessions.length + 1,
         confession: this.confession,
         likes: "0",
         major: this.major
       });
+      this.success = true;
+      this.message = "Successfully submitted confession.";
     }
   }
 };
@@ -47,5 +55,9 @@ export default {
   align-items: center;
   width: 100%;
   margin-left: 25%;
+}
+
+.success {
+  color: grey;
 }
 </style>
