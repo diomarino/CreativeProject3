@@ -1,11 +1,11 @@
 
 <template>
   <div class="form-container">
-    <div class="form">
+    <div class="form" id="confession-form">
       <form class="pure-form" name="submit-confession">
         <fieldset class="pure-group">
-          <input type="text" class="pure-input-1-2" placeholder="Major" id="major" />
-          <textarea class="pure-input-1-2" placeholder="Confession" id="confession"></textarea>
+          <input type="text" class="pure-input-1-2" placeholder="Major" v-model="major" />
+          <textarea class="pure-input-1-2" placeholder="Confession" v-model="confession"></textarea>
         </fieldset>
         <button
           v-on:click="submitConfession()"
@@ -20,20 +20,20 @@
 <script>
 export default {
   name: "Submit",
+  data() {
+    return {
+      major: "",
+      confession: ""
+    };
+  },
   methods: {
     submitConfession() {
-      let id = this.$root.$data.confessions.length + 1;
-      let major = document.getElementById("major").value;
-      let confession = document.getElementById("confession").value;
-
-      let newConfession = {
-        id: id,
-        confession: confession,
+      this.$root.$data.confessions.push({
+        id: this.$root.$data.confessions.length + 1,
+        confession: this.confession,
         likes: "0",
-        major: major
-      };
-
-      this.$root.$data.confessions.push(newConfession);
+        major: this.major
+      });
     }
   }
 };
